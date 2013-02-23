@@ -4,6 +4,7 @@ TheImmigrants
 
 The Phoenix Project (Video Streaming)
 Our project involves allowing users to stream and search for music videos on our web app. The videos will be taken from Youtube and embedded in our web page. The web client will be responsible for searching for music videos on Youtube via an external library provided by Youtube as well as displaying the user interfaces. The server will be serving webpages and their user interfaces to the client. It also will serve up information from our back-end database which will store video links along with corresponding values representing the number of times a video has been requested. This information will be used to display top played videos to users. Our web app will have approximately 3 webpages, one main description of our app, one for users to search and stream videos and one for users to view and stream the top played videos.
+
 Project Milestones
 
 1) Architecture diagram & external library/program use, database access and retriaval, server and client interaction
