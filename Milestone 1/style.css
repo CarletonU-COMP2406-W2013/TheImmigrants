@@ -1,0 +1,50 @@
+html	{
+	height: 100%;
+	background-color: rgb(153,204,255);
+}
+
+body	{
+	margin: 0;
+	padding: 0;
+}
+
+#page	{
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+
+#header	{
+	height: 10%;
+	text-align: center;
+	padding: 20px;
+}
+
+#title	{
+	font-family: Verdana;
+	text-align: center;
+}
+
+#titleText	{
+	font-size: 300%;
+	text-align: bottom-center;
+}
+
+button	{
+	color: white;
+	background: rgb(0,102,204);
+	font-size: 100%;
+	font-weight: bold;
+	font-family: Verdana;
+	width: 200px;
+	height: 50px;
+}
+
+form	{
+	font-size: 125%;
+	font-weight: bold;
+}
+
+#videos	{
+	text-align: center;
+}
