@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	.container-narrow
+		.masthead
+			ul.nav.nav-pills.pull-right
+				li
+					a(href='/home') Home
+				li
+					a(href='/topvideos') Top Videos
+				li.active
+					a(href='/search') Search
+			h3.muted The Phoenix Project
+		hr
+		.jumbotron
+			h1 StreamYourLifeAway
+		hr
+		.row.description
+			.span12
+				form.form-horizontal
+					.control-group
+						.controls.input-prepend
+							span.add-on
+								strong Artist Name
+							input#inputArtist.span3(type='text', placeholder='Artist Name')
+					.control-group
+						.controls.input-prepend
+							span.add-on
+								strong Song Title
+							input#inputTitle.span3(type='text', placeholder='Song Title')
+					.control-group
+						.controls
+							button.btn(type='submit')
+								strong Search
+		hr
+		.footer
+			p © The Phoenix Project 2013

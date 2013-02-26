@@ -1,0 +1,151 @@
+extends layout
+
+block content
+	.container-narrow
+		.masthead
+			ul.nav.nav-pills.pull-right
+				li
+					a(href='/home') Home
+				li.active
+					a(href='/topvideos') Top Videos
+				li
+					a(href='/search') Search
+			h3.muted The Phoenix Project
+		hr
+		.jumbotron
+			h1 StreamYourLifeAway
+		hr
+		.row-fluid.description(style='text-align: center;')
+			.span12
+				h2
+					| Top 6 Music Videos
+					h4(style='margin-top: 20px;')
+						a(href='#Song1', data-toggle='modal', style='text-decoration: none;') Rihanna - Diamonds
+					h4(style='margin-top: 20px;')
+						a(href='#Song2', data-toggle='modal', style='text-decoration: none;') Baauer - Harlem Shake
+					h4(style='margin-top: 20px;')
+						a(href='#Song3', data-toggle='modal', style='text-decoration: none;') Wolfgang Gartner - Redline
+					h4(style='margin-top: 20px;')
+						a(href='#Song4', data-toggle='modal', style='text-decoration: none;') Avicii - Levels
+					h4(style='margin-top: 20px;')
+						a(href='#Song5', data-toggle='modal', style='text-decoration: none;') DJ Tiesto - Insomnia
+					h4(style='margin-top: 20px;')
+						a(href='#Song6', data-toggle='modal', style='text-decoration: none;') Linkin Park - Burn It Down
+		hr
+		.footer
+			p © The Phoenix Project 2013
+		//Modal 
+		#Song1.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#myModalLabel
+					strong Rihanna - Diamonds
+			.modal-body
+				p
+					strong Artist Name: 
+					| Rihanna
+				p
+					strong Song Title: 
+					| Diamonds
+				p
+					strong Year: 
+					| 2012
+				iframe(width='530', height='300', src='http://www.youtube.com/embed/7G8hoP5VkHw', frameborder='0', allowfullscreen='allowfullscreen')
+			.modal-footer
+				button.btn(data-dismiss='modal', aria-hidden='true') Close
+		
+		//Modal 
+		#Song2.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#myModalLabel
+					strong Bauuer - Harlem Shake
+			.modal-body
+				p
+					strong Artist Name: 
+					| Baueer
+				p
+					strong Song Title: 
+					| Harlem Shake
+				p
+					strong Year: 
+					| 2012
+				iframe(width='530', height='300', src='http://www.youtube.com/embed/4hpEnLtqUDg', frameborder='0', allowfullscreen='allowfullscreen')
+			.modal-footer
+				button.btn(data-dismiss='modal', aria-hidden='true') Close
+		//Modal 
+		#Song3.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#myModalLabel
+					strong Wolfgang Gartner - Redline
+			.modal-body
+				p
+					strong Artist Name: 
+					| Wolfgang Gartner
+				p
+					strong Song Title: 
+					| Redline
+				p
+					strong Year: 
+					| 2012
+				iframe(width='530', height='300', src='http://www.youtube.com/embed/XrKvsh2T9dE', frameborder='0', allowfullscreen='allowfullscreen')
+			.modal-footer
+				button.btn(data-dismiss='modal', aria-hidden='true') Close
+		//Modal 
+		#Song4.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#myModalLabel
+					strong Avicii - Levels
+			.modal-body
+				p
+					strong Artist Name: 
+					| Avicii
+				p
+					strong Song Title: 
+					| Levels
+				p
+					strong Year: 
+					| 2012
+				iframe(width='530', height='300', src='http://www.youtube.com/embed/iw4oRym4HSM', frameborder='0', allowfullscreen='allowfullscreen')
+			.modal-footer
+				button.btn(data-dismiss='modal', aria-hidden='true') Close
+		//Modal 
+		#Song5.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#myModalLabel
+					strong DJ Tiesto - Insomnia
+			.modal-body
+				p
+					strong Artist Name: 
+					| DJ Tiesto
+				p
+					strong Song Title: 
+					| Insomnia
+				p
+					strong Year: 
+					| 2012
+				iframe(width='530', height='300', src='http://www.youtube.com/embed/rMROOGQj5aM', frameborder='0', allowfullscreen='allowfullscreen')
+			.modal-footer
+				button.btn(data-dismiss='modal', aria-hidden='true') Close
+		//Modal 
+		#Song6.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#myModalLabel
+					strong Linkin Park - Burn It Down
+			.modal-body
+				p
+					strong Artist Name: 
+					| Linkin Park
+				p
+					strong Song Title: 
+					| Burn It Down
+				p
+					strong Year: 
+					| 2012
+				iframe(width='530', height='300', src='http://www.youtube.com/embed/zgEKLhvCCVA', frameborder='0', allowfullscreen='allowfullscreen')
+			.modal-footer
+				button.btn(data-dismiss='modal', aria-hidden='true') Close
