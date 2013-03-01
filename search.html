@@ -35,22 +35,22 @@
 
       <div class="row description">
         <div class="span12">
-          <form class="form-horizontal">
+          <form class="form-horizontal" method="post" action="/search">
             <div class="control-group">
               <div class="controls input-prepend">
                 <span class="add-on"><strong>Artist Name</strong></span>
-                <input class="span3" type="text" id="inputArtist" placeholder="Artist Name">
+                <input class="span3" type="text" name="vidSearch[artist]" id="inputArtist" placeholder="Artist Name">
               </div>
             </div>
             <div class="control-group">
               <div class="controls input-prepend">
                 <span class="add-on"><strong>Song Title</strong></span>
-                <input class="span3" type="text" id="inputTitle" placeholder="Song Title">
+                <input class="span3" type="text" name ="vidSearch[title]"id="inputTitle" placeholder="Song Title">
               </div>
             </div>
             <div class="control-group">
               <div class="controls">
-                <button type="submit" class="btn"><strong>Search</strong></button>
+                <button type="submit" value ="Submit" class="btn"><strong>Search</strong></button>
               </div>
             </div>
           </form>

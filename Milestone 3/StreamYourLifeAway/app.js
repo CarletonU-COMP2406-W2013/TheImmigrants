@@ -32,6 +32,14 @@ app.get('/home', routes.index);
 app.get('/topvideos', routes.topPlayed);
 app.get('/search', routes.search);
 app.get('/users', user.list);
+app.post('/search',function(request,response){
+	console.log("post request recieved");
+	var youtubeLink = request.body.vidSearch.returnValue;
+	console.log("User searched: "+request.body.vidSearch.artist+" "+request.body.vidSearch.title);
+	console.log("Youtube link returned is: "+youtubeLink);
+	response.end();
+});
+//function so search youtube and return 
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

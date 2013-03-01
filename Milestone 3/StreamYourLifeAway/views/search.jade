@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	script(type='text/javascript', src='/javascripts/search.js')
 	.container-narrow
 		.masthead
 			ul.nav.nav-pills.pull-right
@@ -17,21 +18,23 @@ block content
 		hr
 		.row.description
 			.span12
-				form.form-horizontal
+				form#myForm.form-horizontal(name ="form", method="post",action="/search")
 					.control-group
 						.controls.input-prepend
 							span.add-on
 								strong Artist Name
-							input#inputArtist.span3(type='text', placeholder='Artist Name')
+							input#inputArtist.span3(type='text', placeholder='Artist Name',name='vidSearch[artist]')
 					.control-group
 						.controls.input-prepend
 							span.add-on
 								strong Song Title
-							input#inputTitle.span3(type='text', placeholder='Song Title')
+							input#inputTitle.span3(type='text', placeholder='Song Title',name='vidSearch[title]')
+							input#returnField(type='hidden',name='vidSearch[returnValue]')
 					.control-group
 						.controls
-							button.btn(type='submit')
-								strong Search
+							input#btn(type='button',onclick='vidSearch(this.form)',value="Search")
+									strong Search
+							
 		hr
 		.footer
 			p © The Phoenix Project 2013
