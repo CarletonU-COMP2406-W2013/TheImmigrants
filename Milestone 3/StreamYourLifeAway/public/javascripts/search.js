@@ -1,39 +1,48 @@
+window.onload = function(){
+	//check if server has passed in a youtube link
+	var x= document.getElementById('returnField').value;
+	if( x !== ""){
+		  // if server passed the request a youtube link make an iframe from it
+		  ifrm = document.createElement("IFRAME"); 
+		  ifrm.setAttribute("src",x ); 
+          ifrm.style.width = 700+"px"; 
+          ifrm.style.height = 300+"px"; 
+          document.forms.form.appendChild(ifrm); 
+	}
+}
+
 function vidSearch(form){
-		console.log("excuted");
-		
+		// get song Artist and title from form input fields 
 		var keyWord1 = document.getElementById("inputArtist").value;
 		var keyWord2 = document.getElementById("inputTitle").value;
 		var searchWord = keyWord1+" "+keyWord2;
-		console.log("user searched: "+searchWord);
-	 //create a JavaScript element that returns our JSON data.
-            var script = document.createElement('script');
-            script.setAttribute('id', 'jsonScript');
-            script.setAttribute('type', 'text/javascript');
-            script.setAttribute('src', 'http://gdata.youtube.com/feeds/' + 
+		
+		//create a JavaScript element that returns our JSON data.
+        var script = document.createElement('script');
+        script.setAttribute('id', 'jsonScript');
+        script.setAttribute('type', 'text/javascript');
+        script.setAttribute('src', 'http://gdata.youtube.com/feeds/' + 
                    'videos?vq='+searchWord+'&max-results=1&' + 
                    'alt=json-in-script&callback=ytReturnLink&' + 
                    'orderby=relevance&sortorder=descending&format=5&fmt=18');
 
             //attach script to current page -  this will submit asynchronous
             //search request, and when the results come back callback 
-            //function showMyVideos(data) is called and the results passed to it
+            //function ytReturnLink(data) is called and the results passed to it
             document.documentElement.firstChild.appendChild(script);
 			
 }
 
 function ytReturnLink(data){
-			console.log("entered");
+			
+			// extract link and put it in the hidden field
+			// submit the form
 			var feed = data.feed;
             var entries = feed.entry || [];
+			var index = 0;
             var entry = entries[0];
-            var playCount = entry.yt$statistics.viewCount.valueOf() + ' views';
             var title = entry.title.$t;
             var lnk =  entry.link[0].href;
-            document.getElementById('returnField').value =lnk ;
-			console.log("returnField value is:"+document.getElementById('returnField').value);
-			
-			console.log("submitting form");
+            document.getElementById('returnField').value = lnk ;
 			document.forms.form.submit();
-			//document.body.appendChild(Hform);
-			//Hform.submit();
 }

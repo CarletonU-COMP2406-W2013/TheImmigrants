@@ -29,11 +29,10 @@ block content
 							span.add-on
 								strong Song Title
 							input#inputTitle.span3(type='text', placeholder='Song Title',name='vidSearch[title]')
-							input#returnField(type='hidden',name='vidSearch[returnValue]')
+							input#returnField(type='hidden',name='vidSearch[returnValue]',value=title)
 					.control-group
 						.controls
-							input#btn(type='button',onclick='vidSearch(this.form)',value="Search")
-									strong Search
+							input.btn(type='button',onclick='vidSearch(this.form)',value="Search").strong Search
 							
 		hr
 		.footer
