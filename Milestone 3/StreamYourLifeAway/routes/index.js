@@ -1,8 +1,37 @@
-// GET home page
+var db =require("../db.js").connect();
+var saveData = function(Title,Artist,Link){
+	db.collection("videos",function(error,collection){
+		if(error){
+			console.log("couldnt create the collection");
+		}else{
+			console.log("succesfully created collection");
+			collection.find({"link":Link},function(error,cursor){
+				cursor.toArray(function(error,videos){
+					console.log("executed");
+					if(error)console.log(error);
+						if(videos.length == 0){
+							console.log("cannot find anything so we will insert");
+							collection.insert({
+								title: Title,
+								artist: Artist,
+								link: Link
+							},
+							function(){
+								console.log("succesfully inserted into database");
+							});
+						}else{
+							console.log("found a video",videos[0]);
+						}
+					});
+			});
+		}
+	});
+}
 
 exports.index = function(req, res){
   res.render('index');
 };
+
 
 exports.topPlayed = function(req, res){
   res.render('topPlayed');
@@ -11,7 +40,7 @@ exports.topPlayed = function(req, res){
 exports.search = function(req, res,link){
   // if we didnt explicitly pass a link object in it will be equal to function and we can ignore it
   if(typeof(link)== "function")link="";
-  // if we passed a link object with must parse it and turn it into an embeded link
+  // if we passed a link object we must parse it and turn it into an embeded link
   else{
 	var index = link.indexOf("&");
 	link=link.slice(0,index);
@@ -31,10 +60,10 @@ exports.search = function(req, res,link){
 };
 
 exports.postSearch = function(request,response){
-	//extract the youtube link from the hidden text field
-	var youtubeLink = request.body.vidSearch.returnValue;
-	console.log("User searched: "+request.body.vidSearch.artist+" "+request.body.vidSearch.title);
-	console.log("Youtube link returned is: "+youtubeLink);
-	// redirect to the same page and pass in the link
-	exports.search(request,response,youtubeLink);
+	var link = request.body.vidSearch.returnValue;
+	var artist = request.body.vidSearch.artist;
+	var title = request.body.vidSearch.title;
+	saveData(title,artist,link);
+	console.log("check blocking");
+	exports.search(request,response,link);
 };
