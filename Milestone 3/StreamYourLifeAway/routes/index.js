@@ -1,4 +1,6 @@
 var db =require("../db.js").connect();
+
+// lets put this functionality into another file
 var saveData = function(Title,Artist,Link){
 	db.collection("videos",function(error,collection){
 		if(error){
@@ -14,13 +16,23 @@ var saveData = function(Title,Artist,Link){
 							collection.insert({
 								title: Title,
 								artist: Artist,
-								link: Link
+								link: Link,
+								count: 1
 							},
 							function(){
 								console.log("succesfully inserted into database");
 							});
 						}else{
-							console.log("found a video",videos[0]);
+							console.log("updating video count");
+							var newCount = videos[0].count;
+							collection.findAndModify(
+							{title:Title,artist:Artist,link:Link},
+							[['_id','asc']], 
+							{$set: {count: newCount+1}},
+							{},function(err,vid){
+									if(error) console.log("problem updating the  video");
+									else console.log("new video object "+vid.count);
+							});
 						}
 					});
 			});
