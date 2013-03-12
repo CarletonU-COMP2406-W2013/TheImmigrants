@@ -20,17 +20,17 @@ block content
 				h2
 					| Top 6 Music Videos
 					h4(style='margin-top: 20px;')
-						a(href='#Song1', data-toggle='modal', style='text-decoration: none;') Rihanna - Diamonds
+						a(href='#Song1', data-toggle='modal', style='text-decoration: none;') #{Videos[0].artist}  - #{Videos[0].title}
 					h4(style='margin-top: 20px;')
-						a(href='#Song2', data-toggle='modal', style='text-decoration: none;') Baauer - Harlem Shake
+						a(href='#Song2', data-toggle='modal', style='text-decoration: none;') #{Videos[1].artist} - #{Videos[1].title}
 					h4(style='margin-top: 20px;')
-						a(href='#Song3', data-toggle='modal', style='text-decoration: none;') Wolfgang Gartner - Redline
+						a(href='#Song3', data-toggle='modal', style='text-decoration: none;') #{Videos[2].artist} - #{Videos[2].title}
 					h4(style='margin-top: 20px;')
-						a(href='#Song4', data-toggle='modal', style='text-decoration: none;') Avicii - Levels
+						a(href='#Song4', data-toggle='modal', style='text-decoration: none;') #{Videos[3].artist} - #{Videos[3].title}
 					h4(style='margin-top: 20px;')
-						a(href='#Song5', data-toggle='modal', style='text-decoration: none;') DJ Tiesto - Insomnia
+						a(href='#Song5', data-toggle='modal', style='text-decoration: none;') #{Videos[4].artist} - #{Videos[4].title}
 					h4(style='margin-top: 20px;')
-						a(href='#Song6', data-toggle='modal', style='text-decoration: none;') Linkin Park - Burn It Down
+						a(href='#Song6', data-toggle='modal', style='text-decoration: none;') #{Videos[5].artist} - #{Videos[5].title}
 		hr
 		.footer
 			p © The Phoenix Project 2013
@@ -39,18 +39,18 @@ block content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
 				h3#myModalLabel
-					strong Rihanna - Diamonds
+					strong #{Videos[0].artist} #{Videos[0].title}
 			.modal-body
 				p
 					strong Artist Name: 
-					| Rihanna
+					| #{Videos[0].artist}
 				p
 					strong Song Title: 
-					| Diamonds
+					| #{Videos[0].title}
 				p
 					strong Year: 
 					| 2012
-				iframe(width='530', height='300', src='http://www.youtube.com/embed/7G8hoP5VkHw', frameborder='0', allowfullscreen='allowfullscreen')
+				iframe(width='530', height='300', src= Videos[0].link, frameborder='0', allowfullscreen='allowfullscreen')
 			.modal-footer
 				button.btn(data-dismiss='modal', aria-hidden='true') Close
 		
@@ -59,18 +59,18 @@ block content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
 				h3#myModalLabel
-					strong Bauuer - Harlem Shake
+					strong #{Videos[1].artist} #{Videos[1].title}
 			.modal-body
 				p
 					strong Artist Name: 
-					| Baueer
+					| #{Videos[1].artist}
 				p
 					strong Song Title: 
-					| Harlem Shake
+					| #{Videos[1].title}
 				p
 					strong Year: 
 					| 2012
-				iframe(width='530', height='300', src='http://www.youtube.com/embed/4hpEnLtqUDg', frameborder='0', allowfullscreen='allowfullscreen')
+				iframe(width='530', height='300', src=Videos[1].link, frameborder='0', allowfullscreen='allowfullscreen')
 			.modal-footer
 				button.btn(data-dismiss='modal', aria-hidden='true') Close
 		//Modal 
@@ -78,18 +78,18 @@ block content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
 				h3#myModalLabel
-					strong Wolfgang Gartner - Redline
+					strong #{Videos[2].artist} #{Videos[2].title}
 			.modal-body
 				p
 					strong Artist Name: 
-					| Wolfgang Gartner
+					| #{Videos[2].artist}
 				p
 					strong Song Title: 
-					| Redline
+					| #{Videos[2].title}
 				p
 					strong Year: 
 					| 2012
-				iframe(width='530', height='300', src='http://www.youtube.com/embed/XrKvsh2T9dE', frameborder='0', allowfullscreen='allowfullscreen')
+				iframe(width='530', height='300', src=Videos[2].link, frameborder='0', allowfullscreen='allowfullscreen')
 			.modal-footer
 				button.btn(data-dismiss='modal', aria-hidden='true') Close
 		//Modal 
@@ -97,18 +97,18 @@ block content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
 				h3#myModalLabel
-					strong Avicii - Levels
+					strong #{Videos[3].artist} #{Videos[3].title}
 			.modal-body
 				p
 					strong Artist Name: 
-					| Avicii
+					| #{Videos[3].artist}
 				p
 					strong Song Title: 
-					| Levels
+					| #{Videos[3].title}
 				p
 					strong Year: 
 					| 2012
-				iframe(width='530', height='300', src='http://www.youtube.com/embed/iw4oRym4HSM', frameborder='0', allowfullscreen='allowfullscreen')
+				iframe(width='530', height='300', src=Videos[3].link, frameborder='0', allowfullscreen='allowfullscreen')
 			.modal-footer
 				button.btn(data-dismiss='modal', aria-hidden='true') Close
 		//Modal 
@@ -116,18 +116,18 @@ block content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
 				h3#myModalLabel
-					strong DJ Tiesto - Insomnia
+					strong #{Videos[4].artist} #{Videos[4].title}
 			.modal-body
 				p
 					strong Artist Name: 
-					| DJ Tiesto
+					| #{Videos[4].artist}
 				p
 					strong Song Title: 
-					| Insomnia
+					| #{Videos[4].title}
 				p
 					strong Year: 
 					| 2012
-				iframe(width='530', height='300', src='http://www.youtube.com/embed/rMROOGQj5aM', frameborder='0', allowfullscreen='allowfullscreen')
+				iframe(width='530', height='300', src=Videos[4].link, frameborder='0', allowfullscreen='allowfullscreen')
 			.modal-footer
 				button.btn(data-dismiss='modal', aria-hidden='true') Close
 		//Modal 
@@ -135,17 +135,17 @@ block content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
 				h3#myModalLabel
-					strong Linkin Park - Burn It Down
+					strong #{Videos[5].artist} #{Videos[5].title}
 			.modal-body
 				p
 					strong Artist Name: 
-					| Linkin Park
+					|#{Videos[5].artist}
 				p
 					strong Song Title: 
-					| Burn It Down
+					| #{Videos[5].title}
 				p
 					strong Year: 
 					| 2012
-				iframe(width='530', height='300', src='http://www.youtube.com/embed/zgEKLhvCCVA', frameborder='0', allowfullscreen='allowfullscreen')
+				iframe(width='530', height='300', src=Videos[5].link, frameborder='0', allowfullscreen='allowfullscreen')
 			.modal-footer
 				button.btn(data-dismiss='modal', aria-hidden='true') Close
