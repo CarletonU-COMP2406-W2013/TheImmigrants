@@ -19,6 +19,39 @@ var connect = function(){
 	return db;
 }
 
+var updateSearchCount= function(){
+	db.collection("statistics",function(error,collection){
+		if(error) console.log("cannot get the collection");
+		 else{
+				collection.find({type: "searchCount"},function(error,cursor){
+					cursor.toArray(function(error,searchCount){
+						if(searchCount.length == 0){
+							console.log("no searchCount variable found... creating one");
+							collection.insert({
+								type: "searchCount",
+								count: 0
+							},function(){
+								console.log("updated searchCount");
+							});
+						}else{
+							currentCount = searchCount[0].count;
+							console.log("currentCount is "+ currentCount);
+							currentCount = currentCount+1;
+							collection.findAndModify({type:"searchCount"},
+							[['_id','asc']],
+							{$set: {count: currentCount}},
+							{},function(error,search){
+								console.log("current Search count is:" + currentCount);
+							
+							})
+						}
+						
+					});
+				});
+		 }
+	
+	});
+}
 // save a video to the database
 exports.saveData = function(Title,Artist,Link){
 db.collection("videos",function(error,collection){
@@ -59,9 +92,25 @@ db.collection("videos",function(error,collection){
 	}
 });
 
+	updateSearchCount();
 //end of function
 }
 
+exports.getSearchCount = function(req,res){
+	db.collection("statistics",function(error,collection){
+		collection.find({type : "searchCount"}, function(error,cursor){
+			cursor.toArray(function(error,searchCount){
+				if(searchCount.length == 0) res.render("index",{TotalSearches: 0});
+				else{
+					res.render("index",{TotalSearches: searchCount[0].count});
+				}
+			})
+		})
+	
+	})
+
+
+}
 // load videos from database
 exports.loadData = function(req,res){
 	db.collection("videos",function(error,collection){

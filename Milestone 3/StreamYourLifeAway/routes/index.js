@@ -3,7 +3,7 @@ var database = require("../database/db.js");
 
 // handle get request for home page
 exports.index = function(req, res){
-  res.render('index');
+  database.getSearchCount(req,res);
 };
 
 // handle get request for top played page
