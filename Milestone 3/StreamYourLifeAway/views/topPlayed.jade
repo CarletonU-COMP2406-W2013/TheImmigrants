@@ -19,133 +19,150 @@ block content
 			.span12
 				h2
 					| Top 6 Music Videos
-					h4(style='margin-top: 20px;')
-						a(href='#Song1', data-toggle='modal', style='text-decoration: none;') #{Videos[0].artist}  - #{Videos[0].title}
-					h4(style='margin-top: 20px;')
-						a(href='#Song2', data-toggle='modal', style='text-decoration: none;') #{Videos[1].artist} - #{Videos[1].title}
-					h4(style='margin-top: 20px;')
-						a(href='#Song3', data-toggle='modal', style='text-decoration: none;') #{Videos[2].artist} - #{Videos[2].title}
-					h4(style='margin-top: 20px;')
-						a(href='#Song4', data-toggle='modal', style='text-decoration: none;') #{Videos[3].artist} - #{Videos[3].title}
-					h4(style='margin-top: 20px;')
-						a(href='#Song5', data-toggle='modal', style='text-decoration: none;') #{Videos[4].artist} - #{Videos[4].title}
-					h4(style='margin-top: 20px;')
-						a(href='#Song6', data-toggle='modal', style='text-decoration: none;') #{Videos[5].artist} - #{Videos[5].title}
+					if(Videos[0] != undefined)
+						h4(style='margin-top: 20px;')
+							a(href='#Song1', data-toggle='modal', style='text-decoration: none;') #{Videos[0].artist}  - #{Videos[0].title}
+					if(Videos[1] != undefined)
+						h4(style='margin-top: 20px;')
+							a(href='#Song2', data-toggle='modal', style='text-decoration: none;') #{Videos[1].artist} - #{Videos[1].title}
+					if(Videos[2] != undefined)
+						h4(style='margin-top: 20px;')
+							a(href='#Song3', data-toggle='modal', style='text-decoration: none;') #{Videos[2].artist} - #{Videos[2].title}
+					if(Videos[3] != undefined)
+						h4(style='margin-top: 20px;')
+							a(href='#Song4', data-toggle='modal', style='text-decoration: none;') #{Videos[3].artist} - #{Videos[3].title}
+					if(Videos[4] != undefined)
+						h4(style='margin-top: 20px;')
+							a(href='#Song5', data-toggle='modal', style='text-decoration: none;') #{Videos[4].artist} - #{Videos[4].title}
+					if(Videos[5] != undefined)
+						h4(style='margin-top: 20px;')
+							a(href='#Song6', data-toggle='modal', style='text-decoration: none;') #{Videos[5].artist} - #{Videos[5].title}
 		hr
 		.footer
 			p © The Phoenix Project 2013
-		//Modal 
-		#Song1.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#myModalLabel
-					strong #{Videos[0].artist} #{Videos[0].title}
-			.modal-body
-				p
-					strong Artist Name: 
-					| #{Videos[0].artist}
-				p
-					strong Song Title: 
-					| #{Videos[0].title}
-				p
-					strong Year: 
-					| 2012
-				iframe(width='530', height='300', src= Videos[0].link, frameborder='0', allowfullscreen='allowfullscreen')
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Close
 		
-		//Modal 
-		#Song2.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#myModalLabel
-					strong #{Videos[1].artist} #{Videos[1].title}
-			.modal-body
-				p
-					strong Artist Name: 
-					| #{Videos[1].artist}
-				p
-					strong Song Title: 
-					| #{Videos[1].title}
-				p
-					strong Year: 
-					| 2012
-				iframe(width='530', height='300', src=Videos[1].link, frameborder='0', allowfullscreen='allowfullscreen')
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Close
-		//Modal 
-		#Song3.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#myModalLabel
-					strong #{Videos[2].artist} #{Videos[2].title}
-			.modal-body
-				p
-					strong Artist Name: 
-					| #{Videos[2].artist}
-				p
-					strong Song Title: 
-					| #{Videos[2].title}
-				p
-					strong Year: 
-					| 2012
-				iframe(width='530', height='300', src=Videos[2].link, frameborder='0', allowfullscreen='allowfullscreen')
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Close
-		//Modal 
-		#Song4.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#myModalLabel
-					strong #{Videos[3].artist} #{Videos[3].title}
-			.modal-body
-				p
-					strong Artist Name: 
-					| #{Videos[3].artist}
-				p
-					strong Song Title: 
-					| #{Videos[3].title}
-				p
-					strong Year: 
-					| 2012
-				iframe(width='530', height='300', src=Videos[3].link, frameborder='0', allowfullscreen='allowfullscreen')
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Close
-		//Modal 
-		#Song5.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#myModalLabel
-					strong #{Videos[4].artist} #{Videos[4].title}
-			.modal-body
-				p
-					strong Artist Name: 
-					| #{Videos[4].artist}
-				p
-					strong Song Title: 
-					| #{Videos[4].title}
-				p
-					strong Year: 
-					| 2012
-				iframe(width='530', height='300', src=Videos[4].link, frameborder='0', allowfullscreen='allowfullscreen')
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Close
-		//Modal 
-		#Song6.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#myModalLabel
-					strong #{Videos[5].artist} #{Videos[5].title}
-			.modal-body
-				p
-					strong Artist Name: 
-					|#{Videos[5].artist}
-				p
-					strong Song Title: 
-					| #{Videos[5].title}
-				p
-					strong Year: 
-					| 2012
-				iframe(width='530', height='300', src=Videos[5].link, frameborder='0', allowfullscreen='allowfullscreen')
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Close
+		//Modal
+		if(Videos[0] != undefined)
+			#Song1.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					h3#myModalLabel
+						strong #{Videos[0].artist} - #{Videos[0].title}
+				.modal-body
+					p
+						strong Artist Name: 
+						| #{Videos[0].artist}
+					p
+						strong Song Title: 
+						| #{Videos[0].title}
+					p
+						strong Number of Hits: 
+						| #{Videos[0].count}
+					iframe(width='530', height='300', src= Videos[0].link, frameborder='0', allowfullscreen='allowfullscreen')
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Close
+		
+		//Modal
+		if(Videos[1] != undefined) 
+			#Song2.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					h3#myModalLabel
+						strong #{Videos[1].artist} - #{Videos[1].title}
+				.modal-body
+					p
+						strong Artist Name: 
+						| #{Videos[1].artist}
+					p
+						strong Song Title: 
+						| #{Videos[1].title}
+					p
+						strong Number of Hits: 
+						| #{Videos[1].count}
+					iframe(width='530', height='300', src=Videos[1].link, frameborder='0', allowfullscreen='allowfullscreen')
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Close
+
+		//Modal
+		if(Videos[2] != undefined)
+			#Song3.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					h3#myModalLabel
+						strong #{Videos[2].artist} - #{Videos[2].title}
+				.modal-body
+					p
+						strong Artist Name: 
+						| #{Videos[2].artist}
+					p
+						strong Song Title: 
+						| #{Videos[2].title}
+					p
+						strong Number of Hits: 
+						| #{Videos[2].count}
+					iframe(width='530', height='300', src=Videos[2].link, frameborder='0', allowfullscreen='allowfullscreen')
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Close
+
+		//Modal
+		if(Videos[3] != undefined)
+			#Song4.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					h3#myModalLabel
+						strong #{Videos[3].artist} - #{Videos[3].title}
+				.modal-body
+					p
+						strong Artist Name: 
+						| #{Videos[3].artist}
+					p
+						strong Song Title: 
+						| #{Videos[3].title}
+					p
+						strong Number of Hits: 
+						| #{Videos[3].count}
+					iframe(width='530', height='300', src=Videos[3].link, frameborder='0', allowfullscreen='allowfullscreen')
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Close
+
+		//Modal
+		if(Videos[4] != undefined)
+			#Song5.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					h3#myModalLabel
+						strong #{Videos[4].artist} - #{Videos[4].title}
+				.modal-body
+					p
+						strong Artist Name: 
+						| #{Videos[4].artist}
+					p
+						strong Song Title: 
+						| #{Videos[4].title}
+					p
+						strong Number of Hits: 
+						| #{Videos[4].count}
+					iframe(width='530', height='300', src=Videos[4].link, frameborder='0', allowfullscreen='allowfullscreen')
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Close
+
+		//Modal
+		if(Videos[5] != undefined)
+			#Song6.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					h3#myModalLabel
+						strong #{Videos[5].artist} - #{Videos[5].title}
+				.modal-body
+					p
+						strong Artist Name: 
+						|#{Videos[5].artist}
+					p
+						strong Song Title: 
+						| #{Videos[5].title}
+					p
+						strong Number of Hits: 
+						| #{Videos[5].count}
+					iframe(width='530', height='300', src=Videos[5].link, frameborder='0', allowfullscreen='allowfullscreen')
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Close

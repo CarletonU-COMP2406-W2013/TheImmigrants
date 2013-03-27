@@ -16,7 +16,7 @@ exports.topPlayed = function(req, res){
 exports.search = function(req, res,link){
   if(typeof(link)== "function")	link = "";
   
-  res.render('search',{title : link});
+  database.getArtistsAndTitles(req, res, link);
 };
 
 //handle post request from search page
@@ -26,6 +26,11 @@ exports.postSearch = function(request,response){
 	var index = link.indexOf("&");
 	link = link.slice(0,index);
 	
+	//Method to fix capitalization taken from stack overflow
+	String.prototype.capitalize = function() {
+			return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+	};
+
 	String.prototype.insert = function (index, string) {
 		if (index > 0)
 			return this.substring(0, index) + string + this.substring(index, this.length);
@@ -37,8 +42,10 @@ exports.postSearch = function(request,response){
 	// print the embeded link
 	console.log(link);
 	
-	var artist = request.body.vidSearch.artist;
-	var title = request.body.vidSearch.title;
+	var artist = request.body.vidSearch.artist.toLowerCase().capitalize();
+	var title = request.body.vidSearch.title.toLowerCase().capitalize();
+	console.log(artist);
+	console.log(title);
 	
 	// save the the video to database
 	database.saveData(title,artist,link);

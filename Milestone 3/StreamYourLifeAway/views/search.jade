@@ -1,7 +1,11 @@
 extends layout
 
 block content
+	script
+		var autocomplete1 = !{JSON.stringify(artists)};
+		var autocomplete2 = !{JSON.stringify(titles)};
 	script(type='text/javascript', src='/javascripts/search.js')
+
 	.container-narrow
 		.masthead
 			ul.nav.nav-pills.pull-right
@@ -23,12 +27,12 @@ block content
 						.controls.input-prepend
 							span.add-on
 								strong Artist Name
-							input#inputArtist.span3(type='text', placeholder='Artist Name',name='vidSearch[artist]')
+							input#inputArtist.span3(type='text', placeholder='Artist Name', name='vidSearch[artist]', autocomplete = "off")
 					.control-group
 						.controls.input-prepend
 							span.add-on
 								strong Song Title
-							input#inputTitle.span3(type='text', placeholder='Song Title',name='vidSearch[title]')
+							input#inputTitle.span3(type='text', placeholder='Song Title',name='vidSearch[title]', autocomplete = "off")
 							input#returnField(type='hidden',name='vidSearch[returnValue]',value=title)
 					.control-group
 						.controls

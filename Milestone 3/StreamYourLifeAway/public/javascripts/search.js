@@ -1,6 +1,12 @@
-window.onload = function(){
+window.onload = function()	{
+	$("#inputArtist").typeahead({
+		source: JSON.parse(autocomplete1) || {}
+	});
+	$("#inputTitle").typeahead({
+		source: JSON.parse(autocomplete2) || {}
+	});
 	//check if server has passed in a youtube link
-	var x= document.getElementById('returnField').value;
+	var x = document.getElementById('returnField').value;
 	if( x !== ""){
 		  // if server passed the request a youtube link make an iframe from it
 		  ifrm = document.createElement("IFRAME"); 
@@ -11,10 +17,17 @@ window.onload = function(){
 	}
 }
 
-function vidSearch(form){
+function vidSearch(form)	{
+		//Code for correcting improper capitalization taken from Stack Overflow
+		String.prototype.capitalize = function() {
+			return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+		};
+
 		// get song Artist and title from form input fields 
 		var keyWord1 = document.getElementById("inputArtist").value;
 		var keyWord2 = document.getElementById("inputTitle").value;
+		keyWord1 = keyWord1.toLowerCase().capitalize();
+		keyWord2 = keyWord2.toLowerCase().capitalize();
 		var searchWord = keyWord1+" "+keyWord2;
 		
 		//create a JavaScript element that returns our JSON data.
