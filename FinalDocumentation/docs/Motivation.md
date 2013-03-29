@@ -1,0 +1,2 @@
+When we first formed a group, we didn't have any idea of what we're going to be doing.  One of us have came up with a perfect idea to make an app about video streaming.
+It was the best idea because this project could be easily applied in real life. These days, people do a lot of video streaming. We decided to design something that could be useful to know in the real world. Because when we graduate from University, one of us is probably going to be doing something involving video streaming, because it is popular.
