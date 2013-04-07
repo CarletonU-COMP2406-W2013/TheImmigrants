@@ -35,7 +35,7 @@ app.get('/home', routes.index);
 app.get('/topvideos', routes.topPlayed);
 app.get('/search', routes.search);
 app.post('/search',routes.postSearch);
-app.get('/stream',routes.stream);
+app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
