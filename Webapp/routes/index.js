@@ -12,6 +12,10 @@ exports.topPlayed = function(req, res){
   database.loadData(req,res);
 };
 
+exports.stream = function(req, res){
+	database.loadData2(req,res);
+}
+
 // handle get request for search page
 exports.search = function(req, res,link){
   if(typeof(link)== "function")	link = "";

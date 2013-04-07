@@ -131,6 +131,28 @@ exports.loadData = function(req,res){
 		}
 	});
 }
+exports.loadData2 = function(req,res){
+	db.collection("videos",function(error,collection){
+		if(error)console.log("cannot retrieve the collection");
+		else{
+			console.log("we have the collection");
+			collection.find().limit(6,function(error,cursor){
+				if(error)console.log(error);
+				else{
+					cursor.sort({count:-1}).toArray(function(error,videos){
+						if(error)console.log("we have an error");
+						else {
+							console.log("returned videos");
+							res.render('Stream',{Vids:JSON.stringify(videos) });
+						}
+					});
+					
+				}
+			
+			});
+		}
+	});
+}
 
 // load info from database
 exports.getArtistsAndTitles = function(req, res, link)	{
