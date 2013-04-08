@@ -55,7 +55,7 @@ function ytReturnLink(data){
 			var index = 0;
             var entry = entries[0];
             var title = entry.title.$t;
-            var lnk =  entry.link[0].href;
+            var lnk =  data.feed.entry[0].link[0].href;
             document.getElementById('returnField').value = lnk ;
 			document.forms.form.submit();
 }

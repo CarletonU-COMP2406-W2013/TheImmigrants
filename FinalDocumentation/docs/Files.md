@@ -11,5 +11,3 @@ this file is used to search for specific videos. It also supports error checking
 - routes/index.js
 this file is used to handle get/post requests
 
-- routes/user.js
-get users listing

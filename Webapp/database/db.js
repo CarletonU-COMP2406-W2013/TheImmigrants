@@ -26,16 +26,14 @@ var updateSearchCount= function()	{
 			collection.find({type: "searchCount"},function(error,cursor){
 				cursor.toArray(function(error,searchCount){
 					if(searchCount.length == 0){
-						console.log("no searchCount variable found... creating one");
 						collection.insert({
 							type: "searchCount",
 							count: 1,
 						},function(){
-							console.log("updated searchCount");
+							console.log("Succesfully added SearchCount statistic");
 						});
 					}else{
 						currentCount = searchCount[0].count;
-						console.log("currentCount is "+ currentCount);
 						currentCount = currentCount+1;
 						collection.findAndModify({type:"searchCount"},
 						[['_id','asc']],
@@ -60,7 +58,6 @@ exports.saveData = function(Title,Artist,Link){
 			console.log("succesfully created collection");
 			collection.find({"link":Link},function(error,cursor){
 			cursor.toArray(function(error,videos){
-				console.log("executed");
 				if(error)console.log(error);
 				if(videos.length == 0){
 					console.log("cannot find anything so we will insert");
@@ -72,7 +69,6 @@ exports.saveData = function(Title,Artist,Link){
 						},
 						function(){
 							console.log("succesfully inserted into database");
-							console.log("Inserted Link is:" + Link);
 							});
 				}else{
 					console.log("updating video count");
@@ -120,7 +116,6 @@ exports.loadData = function(req,res){
 					cursor.sort({count:-1}).toArray(function(error,videos){
 						if(error)console.log("we have an error");
 						else {
-							console.log("returned videos");
 							res.render('topPlayed',{Videos:videos});
 						}
 					});
@@ -145,7 +140,6 @@ exports.loadData2 = function(req,response ){
 					cursor.sort({count:-1}).toArray(function(error,videos){
 						if(error)console.log("we have an error");
 						else {
-							console.log("returned videos");
 							response.render('Stream',{Videos:JSON.stringify(videos),});
 						}
 					});
