@@ -19,6 +19,10 @@ exports.search = function(req, res,link){
   database.getArtistsAndTitles(req, res, link);
 };
 
+exports.stream = function(req, res){
+	database.loadData2(req,res);
+}
+
 //handle post request from search page
 exports.postSearch = function(request,response){
 	// Turn link into embededded link
