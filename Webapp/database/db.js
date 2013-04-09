@@ -1,10 +1,12 @@
+// import mongoDB and set up instance variables
 var mongo = require("mongodb");
 var host = "127.0.0.1";
 var port = mongo.Connection.DEFAULT_PORT;
 var db;
 
-// connect to the database
+// define database connection function 
 var connect = function(){
+        // Connect to database if we haven't already
 	if(!db){
 		var db = new mongo.Db("StreamYourLifeAway", new mongo.Server(host,port),{safe:true});
 		db.open(function(error){
@@ -16,9 +18,13 @@ var connect = function(){
 	}else{
 		console.log("we are already connected");
 	}
+        // return database object
 	return db;
 }
 
+
+// Update number of searches or create a search Count variable
+// if no search has been made
 var updateSearchCount= function()	{
 	db.collection("statistics",function(error,collection){
 		if(error) console.log("cannot get the collection");
@@ -49,18 +55,23 @@ var updateSearchCount= function()	{
 	
 	});
 }
+
+
 // save a video to the database
 exports.saveData = function(Title,Artist,Link){
 	db.collection("videos",function(error,collection){
+    // error check
 		if(error){
 			console.log("couldn't create the collection");
 		}else{
-			console.log("succesfully created collection");
+			console.log("successfully found collection");
 			collection.find({"link":Link},function(error,cursor){
 			cursor.toArray(function(error,videos){
 				if(error)console.log(error);
 				if(videos.length == 0){
 					console.log("cannot find anything so we will insert");
+					
+          // insert new video object into database
 					collection.insert({
 						title: Title,
 						artist: Artist,
@@ -71,6 +82,8 @@ exports.saveData = function(Title,Artist,Link){
 							console.log("succesfully inserted into database");
 							});
 				}else{
+           // if Video is already in database
+           // update it's search Count
 					console.log("updating video count");
 					var newCount = videos[0].count;
 					console.log("old video count was"+ newCount);
@@ -86,15 +99,20 @@ exports.saveData = function(Title,Artist,Link){
 			});
 		}
 	});
+  // update the total number of searches
 	updateSearchCount();
 }
 
+// get the total number of searches
 exports.getSearchCount = function(req,res){
 	db.collection("statistics",function(error,collection){
 		collection.find({type : "searchCount"}, function(error,cursor){
 			cursor.toArray(function(error,searchCount){
+
+        // if no search has been made previously
 				if(searchCount.length == 0) res.render("index",{TotalSearches: 0});
 				else{
+          
 					res.render("index",{TotalSearches: searchCount[0].count});
 				}
 			})
@@ -104,6 +122,7 @@ exports.getSearchCount = function(req,res){
 
 
 }
+
 // load videos from database
 exports.loadData = function(req,res){
 	db.collection("videos",function(error,collection){
