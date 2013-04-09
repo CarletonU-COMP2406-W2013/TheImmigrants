@@ -16,4 +16,5 @@ used to sort and display our top played videos to users. Our web app has 4 webpa
 one for users to search and stream videos, one for users to view and stream the top played videos and a
 final page to stream continuously the top played videos.
 
+Our main dependencies are Node.js, Express, MongoDB, Twitter Bootstrap, JQuery and the Jade Template Engine.
 
