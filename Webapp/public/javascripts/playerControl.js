@@ -1,11 +1,10 @@
-    
-	   var tag = document.createElement('script');
+      // load youtube iframe api asynchronously
+      var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      //This function creates an <iframe> (and YouTube player)
-      // after the API code downloads.
+    
 	  
 	  // playerReady boolean used to handle unexpected doulbe call to onplayerready
 	  // playIndex boolean used to control which video to play
@@ -16,7 +15,7 @@
 	  var playerReady = false;
 	  var playIndex = 0;
 	  var videoCue = [];
-      var player;
+      	  var player;
 	  var state = false;
 	  var array = JSON.parse(source);
 	  for(var i=0; i< array.length; i++){
@@ -25,7 +24,7 @@
 			videoCue.push(newId);
 	  }
 	  
-	  // when youtube video api loads this function is called
+      // when youtube video api loads this function is called
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           height: '450',
