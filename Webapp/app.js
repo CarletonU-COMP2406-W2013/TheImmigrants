@@ -28,7 +28,7 @@ app.configure('development', function(){
 });
 
 
-// define rout paths
+// define route paths
 app.get('/', routes.index);
 app.get('/home', routes.index);
 app.get('/topvideos', routes.topPlayed);
