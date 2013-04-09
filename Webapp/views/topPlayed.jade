@@ -3,6 +3,7 @@ extends layout
 block content
 	.container-narrow
 		.masthead
+				//navigation
 			ul.nav.nav-pills.pull-right
 				li
 					a(href='/home') Home
@@ -21,6 +22,7 @@ block content
 		.row-fluid.description(style='text-align: center;')
 			.span12
 				h2
+					//top played music
 					| Top 6 Music Videos
 					if(Videos[0] != undefined)
 						h4(style='margin-top: 20px;')
