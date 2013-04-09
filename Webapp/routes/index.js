@@ -19,6 +19,7 @@ exports.search = function(req, res,link){
   database.getArtistsAndTitles(req, res, link);
 };
 
+// handle get request for stream page
 exports.stream = function(req, res){
 	database.loadData2(req,res);
 }
