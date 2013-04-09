@@ -49,14 +49,9 @@ function vidSearch(form)	{
 
 function ytReturnLink(data){
 			
-			// extract link and put it in the hidden field
-			// submit the form
-			var feed = data.feed;
-            var entries = feed.entry || [];
-			var index = 0;
-            var entry = entries[0];
-            var title = entry.title.$t;
-            var lnk =  data.feed.entry[0].link[0].href;
-            document.getElementById('returnField').value = lnk ;
-			document.forms.form.submit();
+	// extract link from returned data and put it in the hidden field
+	// submit the form
+	var link = data.feed.entry[0].link[0].href;
+        document.getElementById('returnField').value = lnk ;
+	document.forms.form.submit();
 }
