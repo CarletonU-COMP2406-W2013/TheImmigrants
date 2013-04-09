@@ -1,4 +1,5 @@
 window.onload = function()	{
+	// add autocomple to input fields on load
 	$("#inputArtist").typeahead({
 		source: JSON.parse(autocomplete1) || {}
 	});
@@ -9,11 +10,11 @@ window.onload = function()	{
 	var x = document.getElementById('returnField').value;
 	if( x !== ""){
 		  // if server passed the request a youtube link make an iframe from it
-		  ifrm = document.createElement("IFRAME"); 
-		  ifrm.setAttribute("src",x ); 
-          ifrm.style.width = 700+"px"; 
-          ifrm.style.height = 300+"px"; 
-          document.forms.form.appendChild(ifrm); 
+		ifrm = document.createElement("IFRAME"); 
+		ifrm.setAttribute("src",x ); 
+		ifrm.style.width = 700+"px"; 
+		ifrm.style.height = 300+"px"; 
+		document.forms.form.appendChild(ifrm); 
 	}
 }
 
@@ -30,11 +31,11 @@ function vidSearch(form)	{
 		keyWord2 = keyWord2.toLowerCase().capitalize();
 		var searchWord = keyWord1+" "+keyWord2;
 		
-		//create a JavaScript element that returns our JSON data.
-        var script = document.createElement('script');
-        script.setAttribute('id', 'jsonScript');
-        script.setAttribute('type', 'text/javascript');
-        script.setAttribute('src', 'http://gdata.youtube.com/feeds/' + 
+		 //creation of youtube search script 
+       		 var script = document.createElement('script');
+       		 script.setAttribute('id', 'jsonScript');
+        	 script.setAttribute('type', 'text/javascript');
+       		 script.setAttribute('src', 'http://gdata.youtube.com/feeds/' + 
                    'videos?vq='+searchWord+'&max-results=1&' + 
                    'alt=json-in-script&callback=ytReturnLink&' + 
                    'orderby=relevance&sortorder=descending&format=5&fmt=18');
