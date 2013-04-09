@@ -12,5 +12,8 @@ server serves up webpages and their user interfaces to the client. The server is
 for taking the data entered in our search form and storing it in our databases with the corresponding
 Youtube link. It also serves up information from our back-end database which stores video links
 along with corresponding values representing the number of hits on any given video. This information is
-used to sort and display our top played videos to users. Our web app has 3 webpages, one main page,
-one for users to search and stream videos and one for users to view and stream the top played videos.
+used to sort and display our top played videos to users. Our web app has 4 webpages, one main page,
+one for users to search and stream videos, one for users to view and stream the top played videos and a
+final page to stream continuously the top played videos.
+
+
