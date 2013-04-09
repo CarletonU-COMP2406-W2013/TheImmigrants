@@ -6,7 +6,7 @@ var db;
 
 // define database connection function 
 var connect = function(){
-        // Connect to database if we haven't already
+	// Connect to database if we haven't already
 	if(!db){
 		var db = new mongo.Db("StreamYourLifeAway", new mongo.Server(host,port),{safe:true});
 		db.open(function(error){
@@ -18,7 +18,7 @@ var connect = function(){
 	}else{
 		console.log("we are already connected");
 	}
-        // return database object
+	// return database object
 	return db;
 }
 
@@ -60,7 +60,7 @@ var updateSearchCount= function()	{
 // save a video to the database
 exports.saveData = function(Title,Artist,Link){
 	db.collection("videos",function(error,collection){
-    // error check
+		// error check
 		if(error){
 			console.log("couldn't create the collection");
 		}else{
@@ -71,7 +71,7 @@ exports.saveData = function(Title,Artist,Link){
 				if(videos.length == 0){
 					console.log("cannot find anything so we will insert");
 					
-          // insert new video object into database
+					// insert new video object into database
 					collection.insert({
 						title: Title,
 						artist: Artist,
@@ -82,8 +82,8 @@ exports.saveData = function(Title,Artist,Link){
 							console.log("succesfully inserted into database");
 							});
 				}else{
-           // if Video is already in database
-           // update it's search Count
+					// if Video is already in database
+					// update it's search Count
 					console.log("updating video count");
 					var newCount = videos[0].count;
 					console.log("old video count was"+ newCount);
@@ -99,7 +99,7 @@ exports.saveData = function(Title,Artist,Link){
 			});
 		}
 	});
-  // update the total number of searches
+	// update the total number of searches
 	updateSearchCount();
 }
 
@@ -109,7 +109,7 @@ exports.getSearchCount = function(req,res){
 		collection.find({type : "searchCount"}, function(error,cursor){
 			cursor.toArray(function(error,searchCount){
 
-        // if no search has been made previously
+				// if no search has been made previously
 				if(searchCount.length == 0) res.render("index",{TotalSearches: 0});
 				else{
           
@@ -123,12 +123,14 @@ exports.getSearchCount = function(req,res){
 
 }
 
-// load videos from database
+// load top 6 videos
 exports.loadData = function(req,res){
 	db.collection("videos",function(error,collection){
+		// error checking 
 		if(error)console.log("cannot retrieve the collection");
 		else{
 			console.log("we have the collection");
+			// limit to 6 results to save server process memory
 			collection.find().limit(6,function(error,cursor){
 				if(error)console.log(error);
 				else{
@@ -147,12 +149,13 @@ exports.loadData = function(req,res){
 }
 
 
-
+// load top 6 videos for streaming 
 exports.loadData2 = function(req,response ){
 	db.collection("videos",function(error,collection){
 		if(error)console.log("cannot retrieve the collection");
 		else{
 			console.log("we have the collection");
+			//limit to 6 results to save server process memory
 			collection.find().limit(6,function(error,cursor){
 				if(error)console.log(error);
 				else{
@@ -170,7 +173,7 @@ exports.loadData2 = function(req,response ){
 	});
 }
 
-// load info from database
+// load info from database for auto completion
 exports.getArtistsAndTitles = function(req, res, link)	{
 	db.collection("videos", function(error,collection){
 		if(error)console.log("cannot retrieve the collection");
@@ -191,8 +194,8 @@ exports.getArtistsAndTitles = function(req, res, link)	{
 								titleNames[i] = videos[i].title;
 							}
 							res.render('search', {	title:link,
-													artists:JSON.stringify(artistNames), 
-													titles:JSON.stringify(titleNames),	});
+										artists:JSON.stringify(artistNames), 
+										titles:JSON.stringify(titleNames),	});
 						}
 					});	
 				}
