@@ -3,25 +3,33 @@ var database = require("../database/db.js");
 
 // handle get request for home page
 exports.index = function(req, res){
-  database.getSearchCount(req,res);
+  database.getSearchCount(function(searchCount){
+	res.render("index",{TotalSearches: searchCount });
+  });
 };
 
 // handle get request for top played page
 exports.topPlayed = function(req, res){
  // dynamically load top 6 links
-  database.loadData(req,res);
+  database.loadData(function(videos){
+	res.render('topPlayed',{Videos:videos});
+  });
 };
 
 // handle get request for search page
 exports.search = function(req, res,link){
   if(typeof(link)== "function")	link = "";
   
-  database.getArtistsAndTitles(req, res, link);
+  database.getArtistsAndTitles(link,function(data){
+	res.render('search', data);
+  });
 };
 
 // handle get request for stream page
 exports.stream = function(req, res){
-	database.loadData2(req,res);
+	database.loadData2(function(videos){
+		res.render('Stream',{Videos:JSON.stringify(videos),});
+	});
 }
 
 //handle post request from search page

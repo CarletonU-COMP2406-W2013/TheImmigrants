@@ -104,16 +104,16 @@ exports.saveData = function(Title,Artist,Link){
 }
 
 // get the total number of searches
-exports.getSearchCount = function(req,res){
+exports.getSearchCount = function(callback){
 	db.collection("statistics",function(error,collection){
 		collection.find({type : "searchCount"}, function(error,cursor){
 			cursor.toArray(function(error,searchCount){
 
 				// if no search has been made previously
-				if(searchCount.length == 0) res.render("index",{TotalSearches: 0});
+				if(searchCount.length == 0) callback(0);
 				else{
           
-					res.render("index",{TotalSearches: searchCount[0].count});
+					callback(searchCount[0].count);
 				}
 			})
 		})
@@ -124,7 +124,7 @@ exports.getSearchCount = function(req,res){
 }
 
 // load top 6 videos
-exports.loadData = function(req,res){
+exports.loadData = function(callback){
 	db.collection("videos",function(error,collection){
 		// error checking 
 		if(error)console.log("cannot retrieve the collection");
@@ -137,7 +137,7 @@ exports.loadData = function(req,res){
 					cursor.sort({count:-1}).toArray(function(error,videos){
 						if(error)console.log("we have an error");
 						else {
-							res.render('topPlayed',{Videos:videos});
+							callback(videos);
 						}
 					});
 					
@@ -150,7 +150,7 @@ exports.loadData = function(req,res){
 
 
 // load top 6 videos for streaming 
-exports.loadData2 = function(req,response ){
+exports.loadData2 = function(callback){
 	db.collection("videos",function(error,collection){
 		if(error)console.log("cannot retrieve the collection");
 		else{
@@ -162,7 +162,7 @@ exports.loadData2 = function(req,response ){
 					cursor.sort({count:-1}).toArray(function(error,videos){
 						if(error)console.log("we have an error");
 						else {
-							response.render('Stream',{Videos:JSON.stringify(videos),});
+							callback(videos);
 						}
 					});
 					
@@ -174,7 +174,7 @@ exports.loadData2 = function(req,response ){
 }
 
 // load info from database for auto completion
-exports.getArtistsAndTitles = function(req, res, link)	{
+exports.getArtistsAndTitles = function(link,callback)	{
 	db.collection("videos", function(error,collection){
 		if(error)console.log("cannot retrieve the collection");
 		else{
@@ -193,15 +193,17 @@ exports.getArtistsAndTitles = function(req, res, link)	{
 								artistNames[i] = videos[i].artist;
 								titleNames[i] = videos[i].title;
 							}
-							res.render('search', {	title:link,
+							callback({	title:link,
 										artists:JSON.stringify(artistNames), 
-										titles:JSON.stringify(titleNames),	});
-						}
-					});	
+										titles:JSON.stringify(titleNames),
+							});
+						}	
+					});
 				}
 			});
 		}
 	});
+
 }
 
 // connect to the database

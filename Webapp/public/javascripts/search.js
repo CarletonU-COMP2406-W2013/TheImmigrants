@@ -52,6 +52,6 @@ function ytReturnLink(data){
 	// extract link from returned data and put it in the hidden field
 	// submit the form
 	var link = data.feed.entry[0].link[0].href;
-        document.getElementById('returnField').value = lnk ;
+        document.getElementById('returnField').value = link ;
 	document.forms.form.submit();
 }

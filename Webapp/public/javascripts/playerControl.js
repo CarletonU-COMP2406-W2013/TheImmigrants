@@ -61,8 +61,8 @@
 	  
 	  // when one video ends playNext is called
       function playNext(){
+		if(playIndex >= videoCue.length ) playIndex = 0;
         player.loadVideoById(videoCue[playIndex]);
 		playIndex = playIndex +1;
-		if(playIndex == videoCue.length ) playIndex = 0;
       }
 	  
