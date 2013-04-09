@@ -26,8 +26,8 @@ This api was used to enable and display embeded videos within our web applicatio
 within our application
 
 -Youtube Data API
-This api was used to search through youtubes vast collection of music videos. This api enabled us to connect a user's search query to 
-relevant music videos.
+This api was used to search through youtube's vast collection of music videos. This api enabled us to connect a user's search query to 
+relevant music videos, from youtube's database
 
 -Jade Template Engine
 This Template engine was used to simplify the syntax of our client side interface code, aswell as allow our many different web pages

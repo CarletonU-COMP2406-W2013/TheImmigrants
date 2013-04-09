@@ -1,9 +1,9 @@
-A few potential way that could extend our application:
+Our application has the capability to be extended in many different ways.
+One way our application could be extended is to change the method we use to save the history 
+of searches made on our site to make it more dynamic. That is to say instead of reloading the 
+current page after a search is made, the results of the searches can be sent asynchronously in the background to our
+web server. Also the functionalities of both search and stream pages in our application can be melded into one page.
+This way the results of a users search may be added to the current stream of music videos without interrupting viewing 
+of current content. Our application can also be extended to support both the creation and viewing of user comments relating to 
+both the current stream and individually searched videos.
 
-- Display comments below the video. It could have been done by creating a few text fields below the embedded video, 
-and let javascript fill in those text fields with most recent comments. 
-Our existing code doesn't support this extension
-
-- Display 3 related videos beside the embedded video. This could have been done by downloading screenshots off Youtube server, and just placing them into our page. Our existing code doesn't support this extension
-
-Even though those extensions seem like cool features, we think that we built an ideal application that looks clean and easy to use. We believe we don't need those extra extensions.
