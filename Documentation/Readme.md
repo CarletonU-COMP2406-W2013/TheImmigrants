@@ -19,5 +19,7 @@ final page to stream continuously the top played videos.
 Our main dependencies are Node.js, Express, MongoDB and the Jade Template Engine.
 
 In order to run our program, all of the main dependencies must be installed. In order for our web application
-to work properly, MongoDB must be started previous to running our application for the first time.
+to work properly, MongoDB must be started previous to running our application for the first time. And a quick note,
+to stream videos on our top played webpage you simply have to click on the one you want to stream and it will pop
+up in a modal window.
 
