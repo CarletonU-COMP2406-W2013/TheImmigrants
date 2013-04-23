@@ -23,3 +23,6 @@ to work properly, MongoDB must be started previous to running our application fo
 to stream videos on our top played webpage you simply have to click on the one you want to stream and it will pop
 up in a modal window.
 
+To view this web application in action visit the following link:
+http://shrouded-depths-4037.herokuapp.com/home
+
